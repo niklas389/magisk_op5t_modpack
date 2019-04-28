@@ -3,7 +3,7 @@
 This module disables a buch of Google & OnePlus system apps and adds some cool features. Some Google Play services will also get disabled on boot.
 
 ## Currently disabled apps: (* Install via PlayStore if needed)
--OnePlus Account
+OnePlus Account  
 AntHalService  
 *AR Core  
 Basic Daydreams  
