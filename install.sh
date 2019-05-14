@@ -207,16 +207,16 @@ set_permissions() {
 
 # You can add more functions to assist your custom script code
 device_check() {
-  if [[ $(getprop ro.product.brand | grep .. || getprop ro.product.manufacturer) == OnePlus ]] && [[ $API -ge 28 ]]; then
-    ui_print "-Device check passed!"
+  #check manufacturer + API Level + if oemlogkit exists to determine if user is running OxygenOS
+  if [[ $(getprop ro.product.brand | grep .. || getprop ro.product.manufacturer) == OnePlus ]] && [[ $API -ge 28 ]] && [[ -f /system/bin/oemlogkit ]]; then
+    ui_print "- Device check passed!"
   else
     cancel "This mod is for OnePlus devices running OxygenOS 9 only."
   fi
-
 }
 
 cancel() {
   imageless_magisk || unmount_magisk_image
-  ui_print "-Installation cancelled, reason:"
+  ui_print "- Installation cancelled, reason:"
   abort "  -$1"
 }
