@@ -52,20 +52,25 @@ REPLACE_EXAMPLE="
 # Construct your own list here
 REPLACE="
 /system/priv-app/OPCellBroadcastReceiver
+/system/priv-app/OPAppCategoryProvider
 /system/app/Account
 /system/app/AntHalService
 /system/app/ARCore_stub
 /system/app/BasicDreams
 /system/app/BookmarkProvider
+/system/app/BTtestmode
 /system/app/card
 /system/app/Chrome
 /system/app/DeskClock
 /system/app/Drive
 /system/app/Duo
+/system/app/EngineeringMode
+/system/app/EngSpecialTest
 /system/app/Gmail2
 /system/app/LogKitSdService
 /system/app/Maps
 /system/app/Music2
+/system/app/NFCTestMode
 /system/app/NVBackupUI
 /system/app/OEMLogKit
 /system/app/OPBugReportLite
@@ -76,12 +81,16 @@ REPLACE="
 /system/app/OPWidget
 /system/app/PartnerBookmarksProvider
 /system/app/Photos
+/system/app/PhotosOnline
 /system/app/PlayAutoInstallConfig
 /system/app/Protips
+/system/app/RFTuner
+/system/app/SensorTestTool
 /system/app/SoterService
 /system/app/Stk
 /system/app/talkback
 /system/app/Videos
+/system/app/WifiRfTestApk
 /system/media/audio/alarms
 /system/media/audio/notifications
 /system/media/audio/ringtones
@@ -174,7 +183,10 @@ print_modname() {
 on_install() {
   # The following is the default implementation: extract $ZIPFILE/system to $MODPATH
   # Extend/change the logic to whatever you want
-  ui_print "- Extracting module files"
+  ui_print "Compatibility check..."
+  device_check
+
+  ui_print "- Installing..."
   unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
 }
 
@@ -194,3 +206,17 @@ set_permissions() {
 }
 
 # You can add more functions to assist your custom script code
+device_check() {
+  if [[ $(getprop ro.product.brand | grep .. || getprop ro.product.manufacturer) == OnePlus ]] && [[ $API -ge 28 ]]; then
+    ui_print "-Device check passed!"
+  else
+    cancel "This mod is for OnePlus devices running OxygenOS 9 only."
+  fi
+
+}
+
+cancel() {
+  imageless_magisk || unmount_magisk_image
+  ui_print "-Installation cancelled, reason:"
+  abort "  -$1"
+}
