@@ -5,7 +5,7 @@ This module disables a buch of Google & OnePlus system apps and adds some cool f
 ## Currently disabled apps: (Apps written in bold can be installed via PlayStore if needed)
 OnePlus Account  
 AntHalService  
-**AR Core**
+**AR Core**   
 Basic Daydreams  
 Bookmark Provider  
 OnePlus Cards  
