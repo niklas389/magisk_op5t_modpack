@@ -9,15 +9,15 @@ AntHalService
 Basic Daydreams  
 Bookmark Provider  
 OnePlus Cards  
-**Google Chrome**
-Desk Clock
-**Google Drive** 
-**Google Duo** 
-**GMail**
-OnePlus LogKitSdService
-OnePlus CellBroadcastReceiver
-**Google Maps** 
-**Play Music**  
+**Google Chrome**   
+Desk Clock    
+**Google Drive**    
+**Google Duo**    
+**GMail**   
+OnePlus LogKitSdService   
+OnePlus CellBroadcastReceiver   
+**Google Maps**   
+**Play Music**    
 OnePlus NVBackupUI  
 Oneplus OEMLogKit  
 OnePlus OPBugReportLite  
@@ -26,13 +26,13 @@ OnePlus Push
 OnePlus TelephonyDiagnoseManager  
 OnePlus Yellowpage  
 Partnerbookmarksprovider  
-**Google Photos**
+**Google Photos**   
 OnePlus PlayAutoInstallConfig  
 OnePlus Protips  
 Tencent/OnePlus SoterService  
-Stk
-**Android Talkback**
-**Play Videos**
+Stk   
+**Android Talkback**    
+**Play Videos**   
 
 ## Added features
 - Enabled Google Photos unlimited-free Photo backup (until 2021)
